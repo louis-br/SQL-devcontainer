@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<data grt_format="2.0">
+  <value _ptr_="0x561289c06300" type="list" content-type="object" content-struct-name="db.mgmt.Connection">
+    <value type="object" struct-name="db.mgmt.Connection" id="97643d6a-2238-11ec-b48a-0242ac1d0002" struct-checksum="0x96ba47d8">
+      <link type="object" struct-name="db.mgmt.Driver" key="driver">com.mysql.rdbms.mysql.driver.native</link>
+      <value type="string" key="hostIdentifier">Mysql@mysql:3306</value>
+      <value type="int" key="isDefault">1</value>
+      <value _ptr_="0x56128a7e0c00" type="dict" key="modules"/>
+      <value _ptr_="0x56128a7e29b0" type="dict" key="parameterValues">
+        <value type="string" key="SQL_MODE"></value>
+        <value type="string" key="hostName">mysql</value>
+        <value type="string" key="password"></value>
+        <value type="int" key="port">3306</value>
+        <value type="string" key="schema"></value>
+        <value type="string" key="sslCA"></value>
+        <value type="string" key="sslCert"></value>
+        <value type="string" key="sslCipher"></value>
+        <value type="string" key="sslKey"></value>
+        <value type="int" key="useSSL">1</value>
+        <value type="string" key="userName">root</value>
+      </value>
+      <value type="string" key="name">MySQL</value>
+      <link type="object" struct-name="GrtObject" key="owner">897ff4fa-2238-11ec-b48a-0242ac1d0002</link>
+    </value>
+  </value>
+</data>
