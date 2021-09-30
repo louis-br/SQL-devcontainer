@@ -2,7 +2,8 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.195.0/containers/java
 {
 	"name": "Java",
-	"build": {
+	"dockerComposeFile": "./docker-compose.yml",
+	/*"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
 			// Update the VARIANT arg to pick a Java version: 8, 11, 14
@@ -15,7 +16,10 @@
 			"INSTALL_GRADLE": "false",
 			"NODE_VERSION": "lts/*"
 		}
-	},
+	},*/
+
+	"service": "app",
+    "workspaceFolder": "/workspace",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 

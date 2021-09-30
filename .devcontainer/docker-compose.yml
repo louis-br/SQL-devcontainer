@@ -1,0 +1,65 @@
+version: "3.9"
+services:
+  
+  app:
+    container_name: app
+    build:
+      dockerfile: Dockerfile
+      args:
+        VARIANT: "11-bullseye"
+        INSTALL_MAVEN: "true"
+        MAVEN_VERSION: "3.6.3"
+        INSTALL_GRADLE: "false"
+        NODE_VERSION: "lts/*"
+    ports:
+      - 3000:3000
+    volumes:
+      - ..:/workspace
+    user: vscode
+    command: sleep infinity
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
+    environment:
+      MYSQL_ROOT_PASSWORD: "example"
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data/sql:/var/lib/mysql
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: unless-stopped
+    environment:
+#     POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "example"
+#     POSTGRES_DB: "postgres"
+    ports:
+      - 5432:5432
+    volumes:
+     - ./data/postgres:/var/lib/postgresql/data
+
+  pgadmin4:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "user@domain.com"
+      PGADMIN_DEFAULT_PASSWORD: "example"
+      PGADMIN_SERVER_JSON_FILE: "/pgadmin4/servers.json"
+      PGPASSWORD: "example"
+    ports:
+      - 5050:80
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+      - ./pgadmin-servers/pgpass:/pgpass:ro
+      - ./pgadmin-servers/servers.json:/pgadmin4/servers.json:ro
+  
+volumes:
+  pgadmin:
