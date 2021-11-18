@@ -11,6 +11,8 @@ services:
         MAVEN_VERSION: "3.6.3"
         INSTALL_GRADLE: "false"
         NODE_VERSION: "lts/*"
+    env_file:
+      - commands.env
     ports:
       - 3000:3000
     volumes:
