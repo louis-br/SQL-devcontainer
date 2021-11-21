@@ -18,7 +18,7 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends default-mysql-client postgresql-client python3-pip
+    && apt-get -y install --no-install-recommends default-mysql-client postgresql-client python3-pip python3-dev default-libmysqlclient-dev
 RUN python3 -m pip install -U --force-reinstall ipykernel
 
 # [Optional] Uncomment this line to install global node packages.
